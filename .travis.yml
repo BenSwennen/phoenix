@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database rialto_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: uaNzPd3mtBL+64/3wKJ/QWGvrzVJRBCswgALMXlEenbtvS5iH5VWymJ/fyWZGI7cBdw3zKZd59NuvP/1dYiIwG5gLy8Gkf6EYFNLqI0vu/Z5aWF5fYNcPzrNwvU7Gg/xXmFhOWvl5AgEb0G5JAdGTUUnPCRcB7UwscCdu9mnoWJZiyzU1iN55yFaNNE+tvbwalUYjCTlQiAOLq97fkzeCuRWk9WrGAGoYwm6fPkQkSYaeINRuJ4ZUzbRjRtLE9ttILg6isy6NZ4L5Ve8rH/emyKhYmSRs4FMZVbonrQ9BTXsgNZ8BOKVtZnbPwsjNSkMsViBeCP3FEEoTf/DBytDwSgCM/r9t3/wy87F5tgGKvqfwDAUtFZztZAs8T+dMZvl2yIRbmcWc3zvZ8nZDDnl9GWv1qOjwh9tdcMmQCp/q8shHImjGp2xrtSAZT8WkIhbA2k0risw/kPEXRB5sMZN+fM1WQ4YNdzFjNrosmkf7yw+nH3ptFzUGpwMWbYooIe0hmDCDxh3hZnCVRZ27ulV9A0J48Y1EG7s+6OHTg4LVXLKITyVbuVTnVxOE8bOYwlq8CSlo38NOdALU7VcUoQ1roMgLTRuvbKOjFxcE1BNVajKvFyn+Cnc6Qj25pG+n3YiDKz0HEuwkQaJs1sfRFNhm2ixAl3Dlc82Bm6n7MPc4O0=
+  app: afternoon-hollows-10695
+  on:
+    repo: BenSwennen/phoenix
