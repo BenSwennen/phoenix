@@ -13,11 +13,11 @@ use Mix.Config
 # which you typically run after static files are built.
 config :rialto, Rialto.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  cache_static_manifest: "priv/static/manifest.json"
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  url: [host: "afternoon-hollows-10695.herokuapp.com", port: 443],
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
-config :rialto, Peepchat.Repo,
+config :rialto, Rialto.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: 20
