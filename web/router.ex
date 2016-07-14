@@ -9,6 +9,7 @@ defmodule Rialto.Router do
     pipe_through :api
 
     scope "/v1", V1, as: :v1 do
+      post "/register", RegistrationController, :create
       resources "/session", SessionController, only: [:index]
     end
   end
