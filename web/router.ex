@@ -10,7 +10,7 @@ defmodule Rialto.Router do
 
     scope "/v1", V1, as: :v1 do
       post "/register", RegistrationController, :create
-      resources "/session", SessionController, only: [:index]
+      post "token",     SessionController,      :create, as: :login
     end
   end
 end
